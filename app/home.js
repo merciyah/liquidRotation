@@ -17,6 +17,11 @@ const Button = ({onPress, animatedValue}) => {
 				inputRange: [0,0.5,1],
 				outputRange: [1,10,1]
 			})
+		},{
+			translateX: animatedValue.interpolate({
+				inputRange: [0,0.5,1],
+				outputRange: [0,10,0]
+			})
 		}], textAlign:'center', width:BUTTON_SIZE, height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
 		<TouchableOpacity style={{flex:1,justifyContent:"center", alignItems:"center",}} onPress = {onPress}>
 		<Text style={{color:"#ddd"}}>spin</Text>
@@ -26,12 +31,15 @@ const Button = ({onPress, animatedValue}) => {
 
 const Home = (props) => {
 	const animatedValue = React.useRef(new Animated.Value(0)).current;
-	const onPress = () => {
-		Animated.timing(animatedValue, {
-			toValue: 1,
+	const [index,setIndex] = React.useState(0);
+	const animation = (toValue) => Animated.timing(animatedValue, {
+			toValue,
 			duration: 3000,
 			useNativeDriver: false
-		}).start()
+		})
+	const onPress = () => {
+		setIndex(index === 1 ? 0 : 1)
+		animation(index === 1 ? 0 : 1).start()
 	}
   return (
     <View style = {{flex:1, justifyContent:'flex-end', padding:20, alignItems:'center'}}>
