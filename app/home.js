@@ -4,8 +4,21 @@ import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native
 const BUTTON_SIZE = 80;
 
 const Button = ({onPress, animatedValue}) => {
-	return(<Animated.View style={{backgroundColor:"#333", justifyContent:"center", alignItems:"center", transform:[{rotateY: animatedValue.interpolate({inputRange:[0,0.5,1],outputRange:['0deg',"-90deg", "-180deg"]})}], textAlign:'center', width:BUTTON_SIZE, height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
-		<TouchableOpacity onPress = {onPress}>
+	return(<Animated.View style={{backgroundColor:"#333", justifyContent:"center", alignItems:"center", transform:[
+		{
+			perspective:400
+		},{
+			rotateY: animatedValue.interpolate({
+				inputRange:[0,0.5,1],
+				outputRange:['0deg',"-90deg", "-180deg"]
+			})
+		},{
+			scale: animatedValue.interpolate({
+				inputRange: [0,0.5,1],
+				outputRange: [1,10,1]
+			})
+		}], textAlign:'center', width:BUTTON_SIZE, height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
+		<TouchableOpacity style={{flex:1,justifyContent:"center", alignItems:"center",}} onPress = {onPress}>
 		<Text style={{color:"#ddd"}}>spin</Text>
 		</TouchableOpacity>
 		</Animated.View>)
