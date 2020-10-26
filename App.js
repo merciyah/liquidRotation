@@ -1,3 +1,6 @@
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import reducer from './reducer'
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -7,13 +10,17 @@ import HomeScreen from './app/home'
 import ProfileScreen from './app/profile'
 import { createStackNavigator } from '@react-navigation/stack';
 
+
+
 const Stack = createStackNavigator();
+const store = createStore(reducer)
 
 export default function App() {
   return (
+  <Provider store = {store}>    
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName = "Profile"
+      initialRouteName = "Home"
       screenOptions={{
       headerShown: false
         }}
@@ -26,6 +33,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 };
 

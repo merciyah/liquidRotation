@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
 
 const BUTTON_SIZE = 80;
@@ -59,4 +60,8 @@ const Home = (props) => {
   )
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+	const {friends} = state
+	return {friends}
+};
+export default connet(mapStateToProps)(Home);
