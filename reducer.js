@@ -1,3 +1,4 @@
+import { ADD_FRIEND } from './types';
 import { combineReducers } from 'redux';
 
 const INITIAL_STATE = {
@@ -11,7 +12,7 @@ const INITIAL_STATE = {
 
 const friendsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ADD_FRIEND':
+    case ADD_FRIEND:
       // Pulls current and possible out of previous state
       // We do not want to alter state directly in case
       // another action is altering it at the same time
