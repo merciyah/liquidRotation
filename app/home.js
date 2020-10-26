@@ -64,4 +64,4 @@ const mapStateToProps = (state) => {
 	const {friends} = state
 	return {friends}
 };
-export default connet(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home);
