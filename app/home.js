@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux'
 import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
 
 const BUTTON_SIZE = 80;
 
-const Button = ({onPress, animatedValue}) => {
+const Button = ({onPress, animatedValue, props}) => {
 	const inputRange = [0,0.001,0.5,0.501,1];
 	const circleBg = animatedValue.interpolate({
 		inputRange,
@@ -30,12 +30,15 @@ const Button = ({onPress, animatedValue}) => {
 			})
 		}], textAlign:'center', width:BUTTON_SIZE, height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
 		<TouchableOpacity style={{flex:1,justifyContent:"center", alignItems:"center",}} onPress = {onPress}>
-		<Text style={{color:"#ddd"}}>spin</Text>
+		<Text style={{color:"#ddd"}}>{props.friends.current.length}spin</Text>
 		</TouchableOpacity>
 		</Animated.View>)
 }
 
 const Home = (props) => {
+	useEffect(() => {
+  	setTimeout(() => props.navigation.navigate('Profile'),3000)  
+  });
 
 	const animatedValue = React.useRef(new Animated.Value(0)).current;
 	const [index,setIndex] = React.useState(0);
@@ -55,7 +58,7 @@ const Home = (props) => {
 	}
   return (
     <Animated.View style = {{flex:1, backgroundColor:containerBg, justifyContent:'flex-end', padding:20, alignItems:'center'}}>
-    	<Button onPress = {onPress} animatedValue = {animatedValue} />
+    	<Button props = {props} onPress = {onPress} animatedValue = {animatedValue} />
     </Animated.View>
   )
 }
