@@ -17,7 +17,7 @@ import { bindActionCreators } from 'redux';
 import { addFriend } from '../actions';
 
 const buddies = (props) => {
-	console.log('Hello World')
+	//console.log('Hello World')
   return (
     <View style = {{justifyContent:'center', flex:1, alignItems:'center'}}>
     <Text>Hello World</Text>

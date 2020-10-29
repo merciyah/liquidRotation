@@ -7,7 +7,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './app/home'
-import ProfileScreen from './app/buddies'
+import ProfileScreen from './app/profile'
 import { createStackNavigator } from '@react-navigation/stack';
 
 
