@@ -103,15 +103,15 @@ export default class Pokemart extends Component {
       <TouchableOpacity>
       <View style={{flexDirection:'row', borderBottomWidth:1, borderColor:'#d3d3d3'}}>
       <View style={{alignItems:'center', justifyContent:'center', margin:15}}>
-      <Image source={x.image} resizeMode='contain' style={{width:40, height:40}} />
+      <Image source={x.item.image} resizeMode='contain' style={{width:40, height:40}} />
       <View style={{flexDirection:'row', margin:5, alignItems:'center'}}>
             <Image source ={require('../images/currency.png')} resizeMode="contain" style={{height:10, width:10, margin:5}} />
-            <Text style={{color:'#888'}}>{x.cost}</Text>
+            <Text style={{color:'#888'}}>{x.item.cost}</Text>
       </View>
       </View>
       <View style={{justifyContent:'center', width:280, margin:10}}>
-      <Text style={{fontWeight:'600', fontSize:13, color:'#666', marginBottom:7}}>{x.name}</Text>
-      <Text style={{fontSize:12, color:'#777', fontWeight:'500', marginBottom:5, lineHeight:20}}>{x.desc}</Text>
+      <Text style={{fontWeight:'600', fontSize:13, color:'#666', marginBottom:7}}>{x.item.name}</Text>
+      <Text style={{fontSize:12, color:'#777', fontWeight:'500', marginBottom:5, lineHeight:20}}>{x.item.desc}</Text>
       </View>
       </View>
       </TouchableOpacity>
@@ -144,6 +144,7 @@ export default class Pokemart extends Component {
       </View>
       <FlatList style={{flex:13,}} 
       scrollEnabled={false}
+      keyExtractor={item => item.name}
       contentContainerStyle ={{marginBottom:5}}
       data = {items}
       renderItem = {(rowData) => this.eachItem(rowData)}

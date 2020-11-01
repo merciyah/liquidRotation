@@ -135,14 +135,14 @@ export default class Pokedex extends Component {
       pokedexData[x].selected = false
     }
     // then we set out val
-    pokedexData[val.id].selected = true;
+    pokedexData[val.item.id].selected = true;
 
     // then we reset list views
     this.setState({
-       name: val.name,
-       color: val.color,
-       number: val.num,
-       image: val.image
+       name: val.item.name,
+       color: val.item.color,
+       number: val.item.num,
+       image: val.item.image
     })
     this.setState({
       //dataSource: ds.cloneWithRows(pokedexData),
@@ -151,12 +151,12 @@ export default class Pokedex extends Component {
 
 
   balls(x){
-    if(!x.selected){
+    if(!x.item.selected){
         return(
           <View>
           <View style={{flexDirection:'row', justifyContent:'flex-end', alignItems:'center', margin:10}}>
-          <Text style={{marginTop:55, fontSize:11, color:'#bbb8b6'}}>#{x.num}  </Text>
-          <Text style={{marginTop:55, color:'#555', fontWeight:'700', fontSize:11}}>{x.name}  </Text>
+          <Text style={{marginTop:55, fontSize:11, color:'#bbb8b6'}}>#{x.item.num}  </Text>
+          <Text style={{marginTop:55, color:'#555', fontWeight:'700', fontSize:11}}>{x.item.name}  </Text>
           <View style={{height:80, alignItems:'center', justifyContent:'center'}} >
            <View style={styles.line} />
            <TouchableOpacity onPress = {() => this.selectPokemon(x)}>
@@ -170,8 +170,8 @@ export default class Pokedex extends Component {
           return(
           <View>
           <View style={{flexDirection:'row', justifyContent:'flex-end', alignItems:'center', margin:10}}>
-          <Text style={{marginTop:55, fontSize:11, color:'#bbb8b6'}}>#{x.num}  </Text>
-          <Text style={{marginTop:55, color:'#555', fontWeight:'700', fontSize:11}}>{x.name}  </Text>
+          <Text style={{marginTop:55, fontSize:11, color:'#bbb8b6'}}>#{x.item.num}  </Text>
+          <Text style={{marginTop:55, color:'#555', fontWeight:'700', fontSize:11}}>{x.item.name}  </Text>
           <View style={{height:80, alignItems:'center', justifyContent:'center'}} >
            <View style={styles.line} />
            <TouchableOpacity>
@@ -210,6 +210,7 @@ export default class Pokedex extends Component {
       bounce = {false}
       style = {{flex:1, marginBottom:30 }}
       data = {pokedexData}
+      keyExtractor={item => item.name}
       renderItem = {(rowData) => this.balls(rowData)} />
       </View>
       <Footer />

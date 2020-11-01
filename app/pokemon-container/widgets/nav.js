@@ -4,6 +4,8 @@ import {
   StyleSheet,
   Image,
   Text,
+  UIManager,
+  LayoutAnimation,
   TouchableOpacity,
   Navigator,
   View
@@ -14,10 +16,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 export default class Nav extends Component {
   constructor(props){
     super(props)
-  
+
+    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+
+
     this.state ={
       showNav: false
     }
+  }
+
+  componentDidMount(){
+    
   }
 
   showNav(){
@@ -31,6 +40,7 @@ export default class Nav extends Component {
   }
 
   navLogic(){
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     if(this.state.showNav){
       this.setState({
         showNav: false
@@ -50,7 +60,7 @@ export default class Nav extends Component {
       <Icon name="clear-all" size={30} color="#fff" style={{margin:10}} />
       </TouchableOpacity>
       <Text style={{color:'#fff', fontWeight:'600'}}>{this.props.name}</Text>
-      <TouchableOpacity onPress={() => this.props.navigator.replace({id:'trainer'})}>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('trainer')}>
       <Image source={require('../../images/trainer.png')} resizeMode='contain' style={{width:30, height:30}}/>
   		</TouchableOpacity>
       </View>

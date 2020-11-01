@@ -120,6 +120,7 @@ export default class Pokemon extends Component {
       <PokeNav />
         <FlatList 
       data = {currentPokemon}
+      keyExtractor={item => item.name}
       style = {{height:390}}
       contentContainerStyle ={{justifyContent: 'space-around', alignItems:'center',
         flexDirection: 'row',

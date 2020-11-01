@@ -94,7 +94,7 @@ export default class Items extends Component {
     super(props)
 
     this.state = {
-      dataSource: ds.cloneWithRows(items)
+      //dataSource: ds.cloneWithRows(items)
     }
  
   }
@@ -104,14 +104,14 @@ export default class Items extends Component {
       <TouchableOpacity>
       <View style={{flexDirection:'row', borderBottomWidth:1, borderColor:'#d3d3d3'}}>
       <View style={{alignItems:'center', justifyContent:'center', margin:15}}>
-      <Image source={x.image} resizeMode='contain' style={{width:40, height:40}} />
+      <Image source={x.item.image} resizeMode='contain' style={{width:40, height:40}} />
       <View style={{flexDirection:'row', margin:5, alignItems:'center'}}>
-            <Text style={{color:'#888', fontWeight:'600', fontSize:11}}>x {x.cost}</Text>
+            <Text style={{color:'#888', fontWeight:'600', fontSize:11}}>x {x.item.cost}</Text>
       </View>
       </View>
       <View style={{justifyContent:'center', width:280, margin:10}}>
-      <Text style={{fontWeight:'700', fontSize:13, color:'#666', marginBottom:0}}>{x.name}</Text>
-      <Text style={{fontSize:12, color:'#777', fontWeight:'500', marginBottom:5, lineHeight:20}}>{x.desc}</Text>
+      <Text style={{fontWeight:'700', fontSize:13, color:'#666', marginBottom:0}}>{x.item.name}</Text>
+      <Text style={{fontSize:12, color:'#777', fontWeight:'500', marginBottom:5, lineHeight:20}}>{x.item.desc}</Text>
       </View>
       </View>
       </TouchableOpacity>
@@ -122,21 +122,22 @@ export default class Items extends Component {
   		<View style={{backgroundColor:'#f7f7f7', flex:1}}>
   		<Nav name="ITEMS" {...this.props} />
       <ItemsNav />
-      <ScrollView
-      style = {{marginBottom:30}}
+      <View
+      style = {{flex:3,marginBottom:30}}
       >
-      <View style={{flex:3, alignItems:'center', justifyContent:'center', borderColor:'#d3d3d3', borderBottomWidth:1,}}>
+      <View style={{alignItems:'center', justifyContent:'center', borderColor:'#d3d3d3', borderBottomWidth:1, height:200}}>
             <Image source ={require('../images/backpack.png')} resizeMode="contain" style={{height:140, width:140}} />
 
       </View>
       <FlatList style={{flex:13,}} 
-      scrollEnabled={false}
+      scrollEnabled={true}
         contentContainerStyle ={{marginBottom:80}}
 
       data = {items}
+      keyExtractor={item => item.name}
       renderItem = {(rowData) => this.eachItem(rowData)}
       />
-      </ScrollView>
+      </View>
 
       <Footer />
   		</View>)

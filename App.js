@@ -23,9 +23,12 @@ import Items from './app/pokemon-container/items'
 const Stack = createStackNavigator();
 const store = createStore(reducer)
 
+
+
 export default function App() {
   return (
-  <Provider store = {store}>    
+  <Provider store = {store}>
+  <StatusBar hidden />    
     <NavigationContainer>
       <Stack.Navigator
       initialRouteName = "Login"
@@ -42,6 +45,9 @@ export default function App() {
         <Stack.Screen name="pokedex" component={Pokedex} />
         <Stack.Screen name="pokemon" component={Pokemon} />
         <Stack.Screen name="pokemart" component={Pokemart} />
+        <Stack.Screen name="eachPokemon" component={EachPokemon} />
+        <Stack.Screen name="EachPokedex" component={EachPokedex} />
+        <Stack.Screen name="items" component={Items} />
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>

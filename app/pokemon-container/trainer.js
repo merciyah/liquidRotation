@@ -74,11 +74,9 @@ export default class Trainer extends Component {
         healthColor = "#b7eb9b"
       }
 
-      console.log(val)
-
     return(
       <TouchableOpacity>
-      <View style={{height:120, margin:10}}>
+      <View style={{height:160, margin:10}}>
       <Image source ={val.item.image} style={{height:80, width:80, margin:10}} resizeMode ="contain" />
       <View style={{flexDirection:'row', justifyContent:'space-around', borderBottomWidth:1, borderColor:'#e3e3e3', padding:5}}>
       <Text style={{fontSize:11, color:'#777'}}>CP</Text>
