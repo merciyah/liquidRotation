@@ -10,7 +10,15 @@ import HomeScreen from './app/home'
 import ProfileScreen from './app/profile'
 import { createStackNavigator } from '@react-navigation/stack';
 
-
+// Pokemon Comps
+import Login from './app/pokemon-container/login'
+import EachPokemon from './app/pokemon-container/eachPokemon'
+import EachPokedex from './app/pokemon-container/eachpokedex'
+import Pokedex from './app/pokemon-container/pokedex'
+import Pokemon from './app/pokemon-container/pokemon'
+import Trainer from './app/pokemon-container/trainer'
+import Pokemart from './app/pokemon-container/pokemart'
+import Items from './app/pokemon-container/items'
 
 const Stack = createStackNavigator();
 const store = createStore(reducer)
@@ -20,17 +28,20 @@ export default function App() {
   <Provider store = {store}>    
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName = "Home"
+      initialRouteName = "Login"
       screenOptions={{
       headerShown: false
         }}
       >
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Login"
+          component={Login}
           options={{ title: 'Welcome' }}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="trainer" component={Trainer} />
+        <Stack.Screen name="pokedex" component={Pokedex} />
+        <Stack.Screen name="pokemon" component={Pokemon} />
+        <Stack.Screen name="pokemart" component={Pokemart} />
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>
