@@ -23,12 +23,20 @@ const menu = (props) => {
 
   return (
     <View style = {{flex:1, justifyContent:'flex-end', paddingBottom:20}}>
-    <Animated.View style = {{position:'absolute', bottom:25, width:animatedVal.interpolate({
+    <Animated.View style = {{position:'absolute',shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,  
+    elevation: 3, bottom:25, width:animatedVal.interpolate({
 				inputRange:[0,0.5,1],
-				outputRange:[1,BUTTON_SIZE*2.5, BUTTON_SIZE*5]
+				outputRange:[1,BUTTON_SIZE*2.5, BUTTON_SIZE*4]
 			}), backgroundColor:'tomato', height:BUTTON_SIZE-10, borderRadius:BUTTON_SIZE/2, alignSelf:'center'}} />
-    <TouchableOpacity onPress={onPress} style={{position:'absolute', bottom:20, width:BUTTON_SIZE, alignSelf:'center', backgroundColor:'tomato', justifyContent:'center', alignItems:'center', height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
-    <AntDesign key={fold === 1?"menu-fold":'weibo-circle'} name={fold === 1?"menu-fold":'weibo-circle'} size={25} color="#fff" />
+    <TouchableOpacity onPress={onPress} style={{position:'absolute',shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,  
+    elevation: 8, bottom:20, width:BUTTON_SIZE, alignSelf:'center', backgroundColor:'tomato', justifyContent:'center', alignItems:'center', height:BUTTON_SIZE, borderRadius:BUTTON_SIZE/2}}>
+    <AntDesign name={fold === 1?"close":'ellipsis1'} size={25} color="#fff" />
     </TouchableOpacity>
 
     </View>
