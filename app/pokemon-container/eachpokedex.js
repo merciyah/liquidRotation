@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   Navigator,
+  ImageBackground,
   ScrollView,
   View
 } from 'react-native';
@@ -43,9 +44,9 @@ export default class EachPokeDex extends Component {
   }
   render(){
   	return(
-  		<Image source={require('../images/waterBack.jpg')} style={{flex:1, width:null, height:null, }}>
+  		<ImageBackground source={require('../images/waterBack.jpg')} style={{flex:1, width:null, height:null, }}>
       <View style={{height:55, flexDirection:'row', justifyContent:'space-between', backgroundColor:"rgba(0,0,0,0.3)", alignItems:'center'}}>
-      <TouchableOpacity onPress = {() => this.props.navigator.pop()}>
+      <TouchableOpacity onPress = {() => this.props.navigation.pop()}>
       <Icon name="navigate-before" color="#fff" size={30} />
       </TouchableOpacity>
       <View />
@@ -94,7 +95,7 @@ export default class EachPokeDex extends Component {
       </ScrollView>
       <Footer />
       </View>
-  		</Image>
+  		</ImageBackground>
   		)
   }
 }

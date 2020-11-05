@@ -196,7 +196,7 @@ export default class Pokedex extends Component {
       </View>
       <View style={{flexDirection:'row', flex:1, }}>
       <View style={{flex:1, alignItems:'center', justifyContent:'center',}}>
-      <TouchableOpacity onPress={() => this.props.navigator.push({id: 'eachPokedex'})}>
+      <TouchableOpacity onPress={() => this.props.navigation.push('eachPokedex')}>
       <Image source={this.state.image} resizeMode='contain' style={{height:160, width:160}} />
       </TouchableOpacity>
       <View style={{backgroundColor:this.state.color, padding:5, borderRadius:5, alignSelf:'flex-start', margin:10, marginBottom:0}}>

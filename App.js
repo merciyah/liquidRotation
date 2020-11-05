@@ -7,6 +7,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './app/home'
+import Menu from './app/menu'
 import ProfileScreen from './app/profile'
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -31,7 +32,7 @@ export default function App() {
   <StatusBar hidden />    
     <NavigationContainer>
       <Stack.Navigator
-      initialRouteName = "Login"
+      initialRouteName = "menu"
       screenOptions={{
       headerShown: false
         }}
@@ -41,12 +42,14 @@ export default function App() {
           component={Login}
           options={{ title: 'Welcome' }}
         />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="menu" component={Menu} />
         <Stack.Screen name="trainer" component={Trainer} />
         <Stack.Screen name="pokedex" component={Pokedex} />
         <Stack.Screen name="pokemon" component={Pokemon} />
         <Stack.Screen name="pokemart" component={Pokemart} />
         <Stack.Screen name="eachPokemon" component={EachPokemon} />
-        <Stack.Screen name="EachPokedex" component={EachPokedex} />
+        <Stack.Screen name="eachPokedex" component={EachPokedex} />
         <Stack.Screen name="items" component={Items} />
       </Stack.Navigator>
     </NavigationContainer>

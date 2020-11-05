@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Example Slug",
+    "name": "Sam's Pokemon App",
     "slug": "myTestExp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -26,6 +26,7 @@
     "platforms": [
       "android",
       "ios"
-    ]
+    ],
+    "description": ""
   }
 }

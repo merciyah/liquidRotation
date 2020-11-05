@@ -16,7 +16,7 @@ const Button = ({onPress, animatedValue, props}) => {
 		},{
 			rotateY: animatedValue.interpolate({
 				inputRange:[0,0.5,1],
-				outputRange:['0deg',"-90deg", "-180deg"]
+				outputRange:['0deg',"-90deg", "-360deg"]
 			})
 		},{
 			scale: animatedValue.interpolate({
@@ -37,7 +37,7 @@ const Button = ({onPress, animatedValue, props}) => {
 
 const Home = (props) => {
 	useEffect(() => {
-  	setTimeout(() => props.navigation.navigate('Profile'),3000)  
+  	//setTimeout(() => props.navigation.navigate('Profile'),3000)  
   });
 
 	const animatedValue = React.useRef(new Animated.Value(0)).current;

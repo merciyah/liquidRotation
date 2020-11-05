@@ -82,7 +82,7 @@ export default class Trainer extends Component {
       <Text style={{fontSize:11, color:'#777'}}>CP</Text>
       <Text style={{fontSize:11, color:'#777'}}>{health}</Text>
       </View>
-      <View style={{height:5, width:90, borderColor:'#c7c7c7', margin:3, borderWidth:1, borderRadius:5}}>
+      <View style={{height:6, width:90, borderColor:'#c7c7c7', margin:3, borderWidth:1, borderRadius:5}}>
       <View style={{height:4, width:health, backgroundColor:healthColor, borderRadius:5}} />
       </View>
       </View>
